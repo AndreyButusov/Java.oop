@@ -2,6 +2,7 @@ package less1.practice;
 
 import java.util.ArrayList;
 import java.util.List;
+import less1.practice.Product;
 
 public abstract class VendingMachine {
 
