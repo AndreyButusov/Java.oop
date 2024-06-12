@@ -19,19 +19,16 @@ public class program {
         Market.giveOrder(Buyer3, EProduct.Chocolate);
         Market.giveOrder(Buyer4, EProduct.Water);
 
-       // Market.update();
-
         Market.releaseFromMarket(Buyer1);
         Market.releaseFromMarket(Buyer2);
+
+        Market.acceptToMarket(Buyer1);
+        Market.releaseFromMarket(Buyer1);
 
         Market.acceptToMarket(Buyer5);
         Market.giveOrder(Buyer5, EProduct.Fish);
 
-       // Market.update();
-
         Market.releaseFromMarket();
-
-      //  Market.update();
         
     }
 }

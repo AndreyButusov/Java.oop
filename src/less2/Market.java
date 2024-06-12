@@ -17,9 +17,9 @@ public class Market implements MarketBehaviour, QueueBehaviour {
 
     private List<Human> actors = new ArrayList<Human>();
 
-    private List<Human> actorsAtOffice = new ArrayList<Human>();// сначала думал сделать через Queue, но раз надо
-                                                                // реализовать отдельные методы под вход и выход из
-                                                                // очереди сделал через простой лист
+    private List<Human> actorsAtOffice = new ArrayList<Human>();
+
+    private int tempBuy = 0;
 
     public void acceptToMarket(Human actor) {   // входит в магазин
         if (!actors.contains(actor)) {
@@ -65,19 +65,13 @@ public class Market implements MarketBehaviour, QueueBehaviour {
 
     @Override
     public void update() {
-        int i = 0;
-        for (Human human : actors) {
-            if (human.isMakeOrder() & !human.isTakeOrder()) {
-                takeInQueue(human);
-            }
-        }
         while (actorsAtOffice.size() > 0) {
             while (actorsAtOffice.size() > 0) {
                 takeOrders();
-                i++;
+                tempBuy++;
             }
         }
-        System.out.printf("STATUS: %d заказов выдано, в магазине %d посетителя(-ей).\n", i, actors.size());
+        System.out.printf("STATUS: %d покупок совершено, в магазине %d посетителя(-ей).\n", tempBuy, actors.size());
     }
 
     @Override
@@ -86,6 +80,7 @@ public class Market implements MarketBehaviour, QueueBehaviour {
             System.out.printf("%s добавил товар в корзину.\n", actor.getName());
         }else{
             System.out.printf("%s сделал покупки.\n", actor.getName());
+            tempBuy++;
         }
         int namActor = actors.indexOf(actor);
         Human tempActor = actors.remove(namActor);
@@ -98,6 +93,7 @@ public class Market implements MarketBehaviour, QueueBehaviour {
             System.out.printf("%s дополнил корзину.\n", actor.getName());
         }else{
             System.out.printf("%s сделал покупку.\n", actor.getName());
+            tempBuy++;
         }
         int namActor = actors.indexOf(actor);
         Human tempActor = actors.remove(namActor);
@@ -124,7 +120,6 @@ public class Market implements MarketBehaviour, QueueBehaviour {
         if (actor.isMakeOrder()) {
             actorsAtOffice.add(actor);
         }
-
     }
 
     @Override
