@@ -54,7 +54,7 @@ public class Program {
         // public int compare(Student o1, Student o2) {
         //     return o1.id - o2.id;
         // }
-        Collections.sort(arrayList, (s1, s2) -> s1.id - s2.id); // лямда выражение
+        Collections.sort(arrayList, (s1, s2) -> s1.id - s2.id); // лямбда выражение
 
         // Collections.sort(arrayList, new StudentComparator()); // сортировка, второй аргумент обратная сортировка
         System.out.println(arrayList);
@@ -64,6 +64,8 @@ public class Program {
         StudentGroup studGroup3 = new StudentGroup("АЭЛ-113");
         StudentGroup studGroup4 = new StudentGroup("АТС-111");
         StudentGroup studGroup5 = new StudentGroup("АТС-112");
+
+        Student petya = new Student("Петя", 5, studGroup2);
 
         Stream stream1 = new Stream("Электроснабжение");
         Stream stream2 = new Stream("Автоматизация, телесигнализация, связь");

@@ -7,11 +7,22 @@ public class Student implements Comparable<Student> {
 
     public String name;
     public int id;
+    public StudentGroup studGroup;
 
     public Student(String name, int id) {
         this.name = name;
         this.id = id;
     }
+
+    public Student(String name, int id, StudentGroup studGroup) {
+        this.name = name;
+        this.id = id;
+        this.studGroup = studGroup;
+    }
+    
+    // public void GoGroup(StudentGroup studGroup) {
+    //     studGroup.addStudent();
+    // }
 
     @Override
     public String toString() {

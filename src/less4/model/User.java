@@ -4,7 +4,7 @@ import less4.util.UserComparator;
 
 public abstract class User extends UserComparator<User> implements Comparable<User> {
 
-    public int id;
+    protected int id;
     protected String name;
     protected String lastName;
 
