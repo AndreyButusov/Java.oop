@@ -1,8 +1,6 @@
 package less4;
 
-import less4.controller.StudentController;
 import less4.controller.TeacherController;
-import less4.model.Student;
 import less4.model.Teacher;
 
 import java.util.List;
@@ -11,30 +9,18 @@ public class Lesson4 {
 
     public static void main(String[] args) {
 
-        new StudentController()
-                .sendOnConsole(List.of(new Student(1, "Sasha", "Ivanov"),
-                        new Student(1, "Ira", "Ivanova")));
+        TeacherController teachers = new TeacherController();
 
+        Teacher teacher1 = new Teacher(1, "Надежда", "Серова");
+        Teacher teacher2 = new Teacher(2, "Валентина", "Малиновская");
+        Teacher teacher3 = new Teacher(3, "Евгений", "Фролов");
+        Teacher teacher4 = teachers.createTeacher(4, "Олег", "Самаров");
 
-      TeacherController teacherC = new TeacherController();
-        Teacher grigory = new Teacher(2,"Grigoriy","Andreev");
-        Teacher mihail = new Teacher(3,"Mihail","Taraskin");
-        Teacher anton = teacherC.createTeacher(8,"Anton","Abramov");
+        teachers.sendOnConsole(List.of(teacher1, teacher2, teacher3, teacher4));
 
-        teacherC.sendOnConsole(List.of(grigory,mihail,anton));
+        teachers.setTeacher(teacher3, new Teacher(3, "Екатерина", "Рыжова"));
 
-        teacherC.setTeacher(grigory,new Teacher(4,"Albert","Enshtain"));
-
-        teacherC.sendOnConsole(List.of(grigory,mihail));
-
-
-
+        teachers.sendOnConsole(List.of(teacher1, teacher2, teacher3, teacher4)); 
 
     }
-
-//    private static List<Student> getStudents() {
-//        Student s1 = new Student(1, "Sasha", "Ivanov");
-//        Student s2 = new Student(1, "Ira", "Ivanova");
-//        return List.of(s1, s2);
-//    }
 }

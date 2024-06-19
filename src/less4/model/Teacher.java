@@ -10,7 +10,7 @@ public class Teacher extends User  {
 
     @Override
     public String toString() {
-        return String.format("Teacher[id=%d, name=%s, lastName=%s]", id, name, lastName);
+        return String.format("Учитель %d - %s %s", id, name, lastName);
     }
 
 
