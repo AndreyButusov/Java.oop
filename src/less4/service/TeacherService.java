@@ -19,9 +19,9 @@ public class TeacherService {
     }
 
     public void setTeacher(Teacher teacher1, Teacher teacher2){
+        teacher1.setId(teacher2.getId());
         teacher1.setName(teacher2.getName());
         teacher1.setLastName(teacher2.getLastName());
-        teacher1.setId(teacher2.getId());
     }
 
 }

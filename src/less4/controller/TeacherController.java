@@ -22,8 +22,6 @@ public class TeacherController implements UserController{
       return service.createTeacher(id, name, last);
   }
 
-
-
     @Override
     public <T extends User> User create(T user) {
         return user;
