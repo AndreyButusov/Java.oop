@@ -24,9 +24,10 @@ public class StudentView {
             System.out.println("1 - создать студента");
             System.out.println("2 - создать учителя");
             System.out.println("3 - найти студента по id");
-            System.out.println("4 - распечатать информацию о всех студентах");
-            System.out.println("5 - распечатать группы");
-            System.out.println("6 - выход");
+            System.out.println("4 - найти учителя по id");
+            System.out.println("5 - распечатать информацию о всех студентах");
+            System.out.println("6 - распечатать группы");
+            System.out.println("0 - выход");
             
             switch (scanner.nextInt()) {
                 case 1: 
@@ -36,15 +37,18 @@ public class StudentView {
                     createTeacher();
                     break;
                 case 3:
-                    getById();
+                    getById1();
                     break;
                 case 4:
-                    getAllStudents();
+                    getById2();
                     break;
                 case 5:
-                    getStudentGroup();
+                    getAllStudents();
                     break;
                 case 6:
+                    getStudentGroup();
+                    break;
+                case 0:
                     System.exit(0);// выход из приложения
             
                 default:
@@ -82,14 +86,24 @@ public class StudentView {
         
     };
 
-    private Student getById(){
+    private Student getById1(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите id пользователя: ");
+        System.out.println("Введите id студента: ");
         int id = scanner.nextInt();
         Student student = controller.getById(id);
         System.out.println(student);
         return student;
     };
+
+    private Teacher getById2(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите id учителя: ");
+        int id = scanner.nextInt();
+        Teacher teacher = teacherController.getById(id);
+        System.out.println(teacher);
+        return teacher;
+    };
+
     private List<Student> getAllStudents(){
         List<Student> students = controller.getAllStudents();
         System.out.println(students);
