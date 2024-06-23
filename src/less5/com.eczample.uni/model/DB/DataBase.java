@@ -3,9 +3,9 @@ package model.DB;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.StudentGroup;
 import model.impl.Student;
 import model.impl.Teacher;
+import model.impl.StudentGroup;
 //симулирует базу данных
 public class DataBase {
     public static final List<Student> studentsDB = new ArrayList<>();
@@ -15,7 +15,7 @@ public class DataBase {
     public static final List<StudentGroup> StudentGroupDB = new ArrayList<>();
 
     public static void fillDB(){
-        Teacher teacher = new Teacher(1, "Вася", "Иванов");
+        Teacher teacher = new Teacher(1, "Вася", "Иванов", 0);
         teacher.addGroupId(1);
         teachersDB.add(teacher);
         Student s1 = new Student(1, "Рикон", "Старк", 1);
@@ -24,6 +24,4 @@ public class DataBase {
         studentsDB.add(s2);
     }
 
-    public class StudentGroupDB {
-    }
 }

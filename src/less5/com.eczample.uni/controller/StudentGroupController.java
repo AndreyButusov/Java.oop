@@ -2,7 +2,7 @@ package controller;
 
 import java.util.List;
 
-import model.StudentGroup;
+import model.impl.StudentGroup;
 import model.impl.Student;
 import model.impl.Teacher;
 import service.StudentGroupService;
@@ -16,8 +16,8 @@ public class StudentGroupController {
         return service.createStudentGroup(teacher, studGroup);
     }
 
-    public StudentGroup getStudentGroup(int id, List<Integer> s){
-        return service.getStudentGroup(teacherService.getById(id), s);
+    public List<StudentGroup> getStudentGroup(){
+        return service.getStudentGroup();
     }
     
 }

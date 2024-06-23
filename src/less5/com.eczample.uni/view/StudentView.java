@@ -7,7 +7,7 @@ import java.util.Scanner;
 import controller.StudentController;
 import controller.StudentGroupController;
 import controller.TeacherController;
-import model.StudentGroup;
+import model.impl.StudentGroup;
 import model.DB.DataBase;
 import model.impl.Student;
 import model.impl.Teacher;
@@ -23,22 +23,27 @@ public class StudentView {
         while (true) {
             System.out.println("1 - создать студента");
             System.out.println("2 - создать учителя");
-            System.out.println("3 - найти студжента по id");
+            System.out.println("3 - найти студента по id");
             System.out.println("4 - распечатать информацию о всех студентах");
-            System.out.println("5 - распечатать группу по номеру");
+            System.out.println("5 - распечатать группы");
             System.out.println("6 - выход");
             
             switch (scanner.nextInt()) {
                 case 1: 
                     createStudent();
+                    break;
                 case 2: 
                     createTeacher();
+                    break;
                 case 3:
                     getById();
+                    break;
                 case 4:
                     getAllStudents();
+                    break;
                 case 5:
-                    getStudGroup();
+                    getStudentGroup();
+                    break;
                 case 6:
                     System.exit(0);// выход из приложения
             
@@ -91,18 +96,7 @@ public class StudentView {
         return students;
     };
 
-    private StudGroup getStudentGroup(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите id преподователя");
-        int tId = scanner.nextInt();
-        List <Integer> sc = new ArrayList<>();
-        System.out.println("Введите колличество студентов:");
-        int count = scanner.nextInt();
-        System.out.println("Введите id студента");
-        for (int i = 0; i != count; i++) {
-            sc.add(scanner.nextInt());
-
-        }
-        return studGroupController.getStudentGroup(tId, sc);
+    private List<StudentGroup> getStudentGroup(){
+        return studGroupController.getStudentGroup();
     }
 }

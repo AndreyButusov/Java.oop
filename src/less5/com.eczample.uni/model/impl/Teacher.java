@@ -14,12 +14,20 @@ public class Teacher extends User{
     public Teacher(int id, String name, String lastName, int idgroup) {
         super(id, name, lastName);
         this.groupId = idgroup;
-
     }
 
-    public void add(Teacher teacher) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
+    public void addGroupId(int groupID) {
+        groups.add(groupID);
+    }
+
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "groups=" + groups +
+                ", id=" + id +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}'+ "\n";
     }
     
 }
