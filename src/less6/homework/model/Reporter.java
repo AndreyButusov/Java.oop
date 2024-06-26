@@ -2,6 +2,6 @@ package homework.model;
 
 public interface Reporter<T extends User> {
     
-    void report(User user);
+    void report(T user);
     
 }
