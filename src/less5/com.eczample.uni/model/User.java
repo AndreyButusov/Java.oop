@@ -19,4 +19,9 @@ public abstract class User {
     public int getId(){
         return id;
     }
+
+    public String getName() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getName'");
+    }
 }
